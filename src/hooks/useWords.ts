@@ -5,6 +5,7 @@ export const generateWords = (count: number) => {
   return faker.word.words(count).toLowerCase();
 };
 
+
 export const useWords = (count: number) => {
   const [words, setWords] = useState<string>(generateWords(count));
 

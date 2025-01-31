@@ -1,5 +1,6 @@
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { getMinutes } from "@/lib/utils";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 
 export function RadioGroupDemo({
@@ -12,20 +13,39 @@ export function RadioGroupDemo({
       <RadioGroup
         defaultValue="30"
         onValueChange={(value) => setTimeLeft(Number(value))}
-        className="flex flex-row space-x-2"
+        className="flex  flex-wrap justify-center items-center flex-row space-x-2"
       >
-        {[30, 60, 90, 300].map((num) => (
+        {[30, 60, 90, 300,600].map((num) => (
+         
           <div
             key={num + "div"}
-            className="flex gap-2 items-center hover:bg-slate-600/50 justify-center hover:border-primary-500/50 hover:cursor-pointer bg-slate-950 rounded-full transition-all  duration-200 border-2 border-slate-800 p-3"
+            className="flex  gap-2 items-center hover:bg-slate-600/50 justify-center hover:border-primary-500/50 hover:cursor-pointer bg-slate-950 rounded-full transition-all  duration-200 border-2 border-slate-800 p-3"
           >
             <RadioGroupItem key={num} value={num.toString()} id={"r" + num} />
             <Label className="hover:cursor-pointer" htmlFor={"r" + num}>
-              {num} seconds
+               { getMinutes(num) }
             </Label>
           </div>
         ))}
       </RadioGroup>
+      <div className="flex  flex-wrap justify-center items-center flex-row space-x-2">
+        <h2 className="text-center text-slate-500 text-2xl">Difficulty</h2>
+        <RadioGroup defaultValue="easy" className="flex  flex-wrap justify-center items-center flex-row space-x-2">
+          <div className="flex  gap-2 items-center hover:bg-slate-600/50 justify-center hover:border-primary-500/50 hover:cursor-pointer bg-slate-950 rounded-full transition-all  duration-200 border-2 border-slate-800 p-3">
+            <RadioGroupItem value={"easy"} id={"diff-e"}/>
+            <Label htmlFor={"diff-e"} className="hover:cursor-pointer">Easy</Label>
+          </div>
+          <div className="flex  gap-2 items-center hover:bg-slate-600/50 justify-center hover:border-primary-500/50 hover:cursor-pointer bg-slate-950 rounded-full transition-all  duration-200 border-2 border-slate-800 p-3">
+            <RadioGroupItem value={"medium"} id={"diff-m"}/>
+            <Label htmlFor={"diff-m"} className="hover:cursor-pointer">Medium</Label>
+          </div>
+          <div className="flex  gap-2 items-center hover:bg-slate-600/50 justify-center hover:border-primary-500/50 hover:cursor-pointer bg-slate-950 rounded-full transition-all  duration-200 border-2 border-slate-800 p-3">
+            <RadioGroupItem value={"hard"} id={"diff-h"}/>
+            <Label htmlFor={"diff-h"} className="hover:cursor-pointer">Hard</Label>
+          </div>
+       
+        </RadioGroup>
+      </div>
     </>
   );
 }
@@ -62,8 +82,8 @@ export const Settings = ({
         <h3 className="text-left px-4 text-slate-200">
           Test duration is set to
           <span className="italic mx-2  font-bold text-primary-500">
-            {timeLeft + " "}
-            seconds
+            {getMinutes(timeLeft)}
+            
           </span>{" "}
         </h3>
 

@@ -4,6 +4,7 @@ import { Header, RestartButton, Results, UserTypings } from "./components";
 import { useEngine } from "./hooks";
 import Settings from "./pages/Settings";
 import { calculateAccuracyPercentage } from "./utils/helpers";
+import { getMinutes } from "./lib/utils";
 const a = 123;
 console.log(a);
 function App() {
@@ -23,6 +24,7 @@ function App() {
   return (
     <>
       <Header setShowSettings={setShowSettings} />
+      
       {showSettings && (
         <Settings
           timeLeft={timeLeft}
@@ -69,7 +71,7 @@ const GeneratedWords = ({ words }: { words: string }) => {
   return <div className="  text-slate-500">{words}</div>;
 };
 const CountdownTimer = ({ timeLeft }: { timeLeft: number }) => {
-  return <h2 className="text-primary-400 font-medium">Time: {timeLeft}</h2>;
+  return <h2 className="text-primary-400 font-medium">{timeLeft == 0 ? "Time's up!" : "Time left: "}{getMinutes(timeLeft)}</h2>;
 };
 
 export default App;
