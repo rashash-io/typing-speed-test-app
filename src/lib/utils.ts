@@ -16,7 +16,6 @@ export const getMinutes = (seconds: number) => {
   let secCounter=  (sec == 0) ? (" "):(" " + sec+ " seconds")
   //const minCounter = (div%1 === 0 )? "":(" "+div%1 + " minutes") Returns  0.5 minutes etc
   
-  
   if (seconds === 0){ 
     secCounter = ""
     minCounter = ""     

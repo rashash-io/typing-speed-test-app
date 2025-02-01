@@ -8,6 +8,9 @@ export function RadioGroupDemo({
 }: {
   setTimeLeft: (num: number) => void;
 }) {
+
+
+ 
   return (
     <>
       <RadioGroup
@@ -30,7 +33,7 @@ export function RadioGroupDemo({
       </RadioGroup>
       <div className="flex  flex-wrap justify-center items-center flex-row space-x-2">
         <h2 className="text-center text-slate-500 text-2xl">Difficulty</h2>
-        <RadioGroup defaultValue="easy" className="flex  flex-wrap justify-center items-center flex-row space-x-2">
+        <RadioGroup   defaultValue="easy" className="flex  flex-wrap justify-center items-center flex-row space-x-2">
           <div className="flex  gap-2 items-center hover:bg-slate-600/50 justify-center hover:border-primary-500/50 hover:cursor-pointer bg-slate-950 rounded-full transition-all  duration-200 border-2 border-slate-800 p-3">
             <RadioGroupItem value={"easy"} id={"diff-e"}/>
             <Label htmlFor={"diff-e"} className="hover:cursor-pointer">Easy</Label>
@@ -59,6 +62,9 @@ export const Settings = ({
   setTimeLeft: (num: number) => void;
   setShowSettings: (show: boolean) => void;
 }) => {
+
+
+
   return (
     <div className="flex text-center justify-center items-center h-[100vh] absolute inset-0 ">
       <div className=" bg-slate-950/50 text-primary-500 shadow-2xl m-4 backdrop-blur-[2px] h-[60vh] w-[75vw]  z-10  border-2 border-slate-500/50 rounded-3xl">
